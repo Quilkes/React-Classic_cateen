@@ -2,16 +2,26 @@ import React from 'react'
 
 const Header = () => {
     return (
-        <header className='bg-emerald-500 h-12 w-'>
-            <section className='flex justify-between align-middle p-4'>
-                <h1>Brytr Kitchen</h1>
+        <header className='h-16 bg-slate-500 z-50 sticky top-0 opacity-95'>
+            <section className='flex justify-between align-middle flex-row-reverse p-4 '>
+                <div></div>
+                <h1 className='text-white font-bold font-sans text-lg tracking-widest'> <span className='text-purple-700'>Brytr</span> <span className='font-se'>Kitchen</span></h1>
 
-                <button className='relative'>
-                    <div>
-                        a
-                    </div>
+                <button className='relative outline-none h-8 w-11 flex justify-center items-center'>
+                    <div className='absolute h-1 w-8 bg-slate-950 rounded '></div>
                 </button>
+
             </section>
+
+            {/* <nav className=''>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Our Menu</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav> */}
         </header>
     )
 }
