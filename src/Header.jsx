@@ -27,5 +27,3 @@ const Header = () => {
 }
 
 export default Header
-
-<div className=" h-20"></div>
