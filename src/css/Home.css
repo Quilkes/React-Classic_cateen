@@ -160,7 +160,9 @@
     left: 21%;
 }
 
-.meal-for-display button{
+/* BUTTON STYLING */
+
+.meal-for-display .button-container{
     width: 80%;
     height: 40px;
     border: none;

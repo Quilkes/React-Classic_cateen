@@ -1,8 +1,18 @@
 import React from 'react'
+import MenuPostFeeds from './MenuPostFeeds'
+import Loading from './Loading-state/Loading'
 
-const Menu = () => {
+const Menu = ({ menuListPosts, isLoading, handleAddProduct }) => {
   return (
-    <div>Menu</div>
+    <section>
+      {isLoading
+        ? <Loading />
+        : <MenuPostFeeds
+          menuListPosts={menuListPosts}
+          handleAddProduct={handleAddProduct}
+        />
+      }
+    </section>
   )
 }
 

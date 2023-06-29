@@ -8,6 +8,22 @@ const Home = lazy(() => import('./components/Home'));
 const Menu = lazy(() => import('./components/Menu'));
 
 function App() {
+  const [menuListPosts, setmenuListPost] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [cartItem, setcartItem] = useState([]);
+
+  const handleAddProduct = (product) => {
+    const ProductExist = cartItem.find(item => item.id === product.id);
+
+    {
+      ProductExist
+        ? setcartItem(cartItem.map(item => item.id === product.id
+          ? { ...ProductExist, quatity: ProductExist.quatity + 1 }
+          : item
+        ))
+        : setcartItem([...cartItem, { ...product, quatity: 1 }])
+    }
+  }
 
   return (
     <main className="App">
@@ -19,7 +35,11 @@ function App() {
         </Suspense>} />
         <Route exact path='/menu' element={<Suspense
           fallback={<Loading />}>
-          <Menu />
+          <Menu
+            menuListPosts={menuListPosts}
+            isLoading={isLoading}
+            handleAddProduct={handleAddProduct}
+          />
         </Suspense>} />
         <Route exact path='*' element={<Missing />} />
       </Routes>
