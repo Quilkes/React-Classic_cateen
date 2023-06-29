@@ -1,84 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Orbitron:wght@900&display=swap');
 
-.bg-color{
-    background-color: rgb(191, 201, 201);
+:root{
+    --ORBITRON: 'Orbitron', sans-serif;
+    --PHUDU: 'Phudu', cursive;
+    --LATO: 'Lato', sans-serif;
 }
 
-.bg-color-radient{
-    background-image: linear-gradient(to right, rgb(232, 225, 225) 90px, rgba(162, 170, 170));
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--LATO);
 }
 
-.header {
-    position: sticky;
-    top: 0;
-    height: 60px;
-    z-index: 800;
-    background-image: linear-gradient(to right, rgb(232, 225, 225) 90px, rgba(162, 170, 170));
+.App{
+    max-width: 100vw;
+    min-height: 100vh;
+    background-color: white;
 }
 
-.header-section{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.3rem 0.7rem;
-    padding-top: 7px;
-}
-
-.menuBtn{
-    position: relative;
-    border: none;
-    height: 35px;
-    width: 40px;
-    outline: none;
-    background-color: transparent;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-}
-
-.table{
-    position: relative;
-    top: -57vh;
-    left: -530px;
-    width: 800px;
-    height: 800px;
-    margin:  50px auto;
-    border-radius: 50%;
-    background-color: rgb(191, 201, 201);
-    animation: rotation 14s ease infinite;
-}
-
-@keyframes rotation {
-    0%{
-        transform: rotate(0deg);
-    }
-    25%{
-        transform: rotate(90deg);
-        animation-play-state: paused;
-    }
-    35%{
-        animation-play-state: running;
-    }
-    50%{
-        transform: rotate(180deg);
-        animation-play-state: paused;
-    }
-    60%{
-        animation-play-state: running;
-    }
-    75%{
-        transform: rotate(270deg);
-        animation-play-state: paused;
-    }
-    85%{
-        animation-play-state: running;
-    }
-    100%{
-        transform: rotate(360deg);
-    }
+a{
+    text-decoration: none;
 }

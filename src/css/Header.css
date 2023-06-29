@@ -1,0 +1,180 @@
+header {
+    position: sticky;
+    top: 0;
+    height: 60px;
+    z-index: 800;
+    background-color: white;
+}
+
+.header-section{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0.7rem;
+    padding-top: 7px;
+}
+
+h1 {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+h3{
+    text-align: center;
+}
+
+.dishes-headings{
+    padding: 1rem 0 5rem 0;
+    font-family: var(--LATO);
+}
+
+.header-h1 {
+    font-family: sans-serif, cursive;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.Brytr{
+    font-family: cursive;
+    color:rgb(149, 32, 178);
+    letter-spacing: 0.2rem;
+}
+
+.kit{
+    font-family: cursive;
+    color: rgb(59, 42, 59);
+}
+
+.chen{
+    font-family: cursive, sans-serif;
+    color: rgb(28, 66, 28);
+}
+
+.menuBtn{
+    position: relative;
+    border: none;
+    height: 35px;
+    width: 40px;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    display: grid;
+    place-content: center;
+    background-color: transparent;
+    z-index: 500;
+}
+
+.menuBtn .hamburger-menu{
+    background-color: black;
+    
+}
+
+.menuBtn .hamburger-menu,
+.menuBtn .hamburger-menu::before,
+.menuBtn .hamburger-menu::after{
+    width: 30px;
+    height: 4px;
+    background-color: rgb(28, 66, 28);
+    border-radius: 5px;
+    transition: all 0.4s ease-in-out;
+}
+
+.menuBtn .hamburger-menu::before,
+.menuBtn .hamburger-menu::after{
+    position: absolute;
+    content: '';
+    width: 23px;
+}
+
+.menuBtn .hamburger-menu::before{
+    transform: translate(-15px, -9px);
+}
+
+.menuBtn .hamburger-menu::after{
+    transform: translate(-15px, 9px);
+}
+
+.menuBtn.open .hamburger-menu{
+    background-color: transparent;
+    transform: rotate(720deg);
+}
+
+.menuBtn.open .hamburger-menu::before{
+    transform: translateX(-15px) rotate(45deg);
+    background-color: red;
+}
+
+.menuBtn.open .hamburger-menu::after{
+    transform: translateX(-15px) rotate(-45deg);
+    background-color: red;
+}
+
+nav{
+    display: none;
+    padding-top: 0.5rem;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 1rem 0.5rem;
+    animation: drop 0.50s ease-in-out forwards;
+    transform-origin: top center;
+    
+    background-color: white;
+    background-image: url(../pics/unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100vh;
+}
+
+@keyframes drop {
+    0%{
+        transform: scaleY(0);
+    }
+    80%{
+        transform: scaleY(1.2);
+    }
+    100%{
+        transform: scaleY(1);
+    }
+} 
+
+nav.open{
+    display:block;
+}
+
+nav ul{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    padding-top: 4rem;
+}
+
+nav li{
+    list-style-type: none;
+    padding: 0.5rem;
+}
+
+nav ul a{
+    display: block;
+    width: 80%;
+    font-size: 1.6rem;
+    font-family: var(--PHUDU);
+    margin: auto;
+    text-align: center;
+}
+
+nav a:any-link{
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(149, 32, 178);
+
+}
+
+nav a:hover,
+nav a:focus{
+    transform: scale(1.2);
+    transition: all 0.3s;
+}
