@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Orbitron:wght@900&display=swap');
 
+/* CUSTOM DEFINITION */
 :root{
     --ORBITRON: 'Orbitron', sans-serif;
     --PHUDU: 'Phudu', cursive;
     --LATO: 'Lato', sans-serif;
+
 }
 
+/* RESET */
 *{
     padding: 0;
     margin: 0;

@@ -4,18 +4,23 @@ import Header from './components/Header';
 import Loading from './components/Loading-state/Loading';
 import Missing from './components/Missing';
 
+// Lazy loading componenets
 const Home = lazy(() => import('./components/HomeList-components/Home'));
 const Menu = lazy(() => import('./components/MenuList-components/Menu'));
+// <============
 
 function App() {
+
+  // States
   const [menuListPosts, setmenuListPost] = useState([]);
   const [homeListPosts, sethomeListPost] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [cartItem, setcartItem] = useState([]);
+  // <============
 
+  // Add to cart function
   const handleAddProduct = (product) => {
     const ProductExist = cartItem.find(item => item.id === product.id);
-
     {
       ProductExist
         ? setcartItem(cartItem.map(item => item.id === product.id
@@ -25,6 +30,7 @@ function App() {
         : setcartItem([...cartItem, { ...product, quatity: 1 }])
     }
   }
+  // <============
 
   return (
     <main className="App">
