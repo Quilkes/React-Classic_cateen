@@ -4,11 +4,12 @@ import Header from './components/Header';
 import Loading from './components/Loading-state/Loading';
 import Missing from './components/Missing';
 
-const Home = lazy(() => import('./components/Home'));
-const Menu = lazy(() => import('./components/Menu'));
+const Home = lazy(() => import('./components/HomeList-components/Home'));
+const Menu = lazy(() => import('./components/MenuList-components/Menu'));
 
 function App() {
   const [menuListPosts, setmenuListPost] = useState([]);
+  const [homeListPosts, sethomeListPost] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [cartItem, setcartItem] = useState([]);
 
@@ -31,7 +32,11 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Suspense
           fallback={<Loading />}>
-          <Home />
+          <Home
+            homeListPosts={homeListPosts}
+            handleAddProduct={handleAddProduct}
+            isLoading={isLoading}
+          />
         </Suspense>} />
         <Route exact path='/menu' element={<Suspense
           fallback={<Loading />}>

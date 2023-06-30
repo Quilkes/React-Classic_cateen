@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../css/Home.css';
+import '../../css/Home.css';
 
 const MenuPostPage = ({ postMapped, handleAddProduct }) => {
   return (
     <section className="meal-section">
       <Link to=''>
-        <div className="meal-1 meal-for-display">
+        <div className="meal-for-display">
           <img
             src={postMapped.image}
             alt={postMapped.name}

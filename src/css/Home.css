@@ -139,13 +139,13 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding: 0.7rem;
    
 }
 
 .meal-for-display{
     transition: all 0.3s ease-in-out;
     max-width: 450px;
+    padding-bottom: 1rem;
 }
 
 .meal-section > .meal-for-display:hover{
@@ -167,7 +167,6 @@
     height: 40px;
     border: none;
     outline: none;
-    cursor: pointer;
     border: 1px solid rgb(220, 194, 226);
     border-bottom-left-radius: 4px;
     color: #333;
@@ -184,6 +183,8 @@
     height: 100%;
     background-color: rgb(233, 219, 236);
     border: 1px solid rgb(220, 194, 226);
+    border: none;
+    outline: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,13 +197,20 @@
 }
 
 .meal-for-display .portions .font{
-    width: 30%;
+    width: 35%;
     height: 100%;
     background-color: rgb(149, 32, 178);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
+    outline: none;
+}
+
+.meal-for-display .portions .font:hover,
+.meal-for-display .portions .font:focus {
+    opacity: 8;
 }
 
 .portions{

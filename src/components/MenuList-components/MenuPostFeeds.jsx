@@ -5,7 +5,7 @@ const MenuPostFeeds = ({ menuListPosts, handleAddProduct }) => {
   return (
     <>
       {menuListPosts.map(postMapped => (
-        <MenuPostPage 
+        <MenuPostPage
           key={postMapped.id}
           postMapped={postMapped}
           handleAddProduct={handleAddProduct}

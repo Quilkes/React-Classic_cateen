@@ -1,12 +1,13 @@
 import React from 'react'
 import MenuPostFeeds from './MenuPostFeeds'
-import Loading from './Loading-state/Loading'
+import SkeletonDisplayProduct from '../Skeleton-Loading/SkeletonDisplayProduct'
+import Loading from '../Loading-state/Loading'
 
 const Menu = ({ menuListPosts, isLoading, handleAddProduct }) => {
   return (
     <section>
       {isLoading
-        ? <Loading />
+        ? <SkeletonDisplayProduct />
         : <MenuPostFeeds
           menuListPosts={menuListPosts}
           handleAddProduct={handleAddProduct}
