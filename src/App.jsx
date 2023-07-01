@@ -117,12 +117,13 @@ function App() {
   }
   // <============
 
+  // Reduce cart item quatity function
   const handleMinuProduct = (product) => {
     const productExist = cartItem.find((item) => item.id === product.id);
     if (productExist.quantity === 1) {
       setcartItem(cartItem.filter((filterItem) => filterItem.id !== product.id));
     }
-    
+
     else {
       setcartItem(
         cartItem.map((mappedItem) =>
@@ -131,6 +132,33 @@ function App() {
             : mappedItem))
     };
   }
+
+  // Clear cart
+  const handleCartClearance = () => {
+    setcartItem([]);
+  } 
+  // <============
+
+  // Total price Accumulator
+  const totalPrice = cartItem.reduce((acc, item) => {
+    const itemQuantity = Number(item.quantity);
+    const itemPrice = Number(item.price);
+
+    if (isNaN(itemQuantity) || isNaN(itemPrice)) {
+      console.warn(`Invalid quantity or price for item:`, item);
+      return acc;
+    }
+
+    const itemTotalPrice = itemQuantity * itemPrice;
+    return acc + itemTotalPrice;
+  }, 0).toFixed(2);
+  // <============
+
+  // Reset submit fuction
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  // <============
 
   return (
     <main className="App">

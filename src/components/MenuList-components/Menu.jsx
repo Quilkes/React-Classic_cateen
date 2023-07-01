@@ -6,7 +6,7 @@ const Menu = ({ menuListPosts, isLoading, handleAddProduct }) => {
   return (
     <section>
       {isLoading
-        ? Array.from({ length: 3 }).map(() => (
+        ? Array.from({ length: 10 }).map(() => (
           [...Array(1)].map((_, i) => <SkeletonDisplayProduct key={i} />)
         ))
         : <MenuPostFeeds

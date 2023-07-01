@@ -48,7 +48,7 @@ const Home = ({ homeListPosts, handleAddProduct, isLoading }) => {
         <legend>DISHES</legend>
         <h3 className="dishes-headings">Best dishes for you</h3>
         {isLoading
-          ? Array.from({ length: 3 }).map(() => (
+          ? Array.from({ length: 4 }).map(() => (
             [...Array(1)].map((_, i) => <SkeletonDisplayProduct key={i} />)
           ))
         : <HomePostFeed
