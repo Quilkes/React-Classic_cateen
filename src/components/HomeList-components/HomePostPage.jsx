@@ -8,8 +8,8 @@ const HomePostPage = ({ postMapped, handleAddProduct }) => {
           <img
             src={postMapped.image_path}
             alt={postMapped.name}
-            
-            
+            height='200'
+            width='200'
           />
           <br />
           <section className="portions">
