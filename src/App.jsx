@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect, lazy, Suspense, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Loading from './components/Loading-state/Loading';
@@ -19,6 +19,7 @@ function App() {
   const [homeListPosts, sethomeListPost] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [cartItem, setcartItem] = useState([]);
+  const effectRan = useRef(false);
   // <============
 
   // Fuction for Toggling Hamburger menu
@@ -29,86 +30,102 @@ function App() {
 
   // Fuction for fetching datas and images from firebase
   useEffect(() => {
-    // Reference to Realtime Database
-    const menuRef = ref(database, 'menu');
-    onValue(menuRef, snapshot => {
-      const menuDatas = snapshot.val();
-      const promises = []; //declaring new array to store correct menu
+    // prevent useEffect from fetching datas twice
+    if (effectRan.current === false) {
+      // Reference to Realtime Database
+      const menuRef = ref(database, 'menu');
+      onValue(menuRef, snapshot => {
+        const menuDatas = snapshot.val();
+        const promises = []; //declaring new array to store correct menu
 
-      for (let id in menuDatas) {
-        const product = menuDatas[id];
-        // ilterate through all img in storage
-        const imageRef = storageRef(storage, `menu/${id}.jpg`);
+        for (let id in menuDatas) {
+          const product = menuDatas[id];
+          // ilterate through all img in storage
+          const imageRef = storageRef(storage, `menu/${id}.jpg`);
 
-        // Get img url
-        const promise = getDownloadURL(imageRef)
-          .then(url => {
-            product.image_path = url;
-            return product;
+          // Get img url
+          const promise = getDownloadURL(imageRef)
+            .then(url => {
+              product.image_path = url;
+              return product;
+            })
+            .catch(error => {
+              console.error(error);
+              return null;
+            });
+          // push to the declared array
+          promises.push(promise);
+
+        }
+
+        Promise.all(promises)
+          .then(products => {
+            // Remove null values and update the state
+            const filteredProducts = products.filter(p => p !== null);
+            setmenuListPost(filteredProducts)
+            setIsLoading(false);
           })
           .catch(error => {
             console.error(error);
-            return null;
           });
-        // push to the declared array
-        promises.push(promise);
+
+      });
+
+      // terminate the useEffect
+      return () => {
+        effectRan.current = true
       }
-
-      Promise.all(promises)
-        .then(products => {
-          // Remove null values and update the state
-          const filteredProducts = products.filter(p => p !== null);
-          setmenuListPost(filteredProducts)
-          setIsLoading(false);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-
-    });
+    }
   }, []);
 
 
   useEffect(() => {
-    // Reference to Realtime Database
-    const menuRef = ref(database, 'home_favourites');
-    const menuQuery = query(menuRef, limitToFirst(9));
+    // prevent useEffect from fetching datas twice
+    if (effectRan.current === false) {
+      // Reference to Realtime Database
+      const menuRef = ref(database, 'home_favourites');
+      const menuQuery = query(menuRef, limitToFirst(9));
 
-    onValue(menuQuery, snapshot => {
-      const menuDatas = snapshot.val();
-      const promises = []; //declaring new array to store correct menu
+      onValue(menuQuery, snapshot => {
+        const menuDatas = snapshot.val();
+        const promises = []; //declaring new array to store correct menu
 
-      for (let id in menuDatas) {
-        const product = menuDatas[id];
-        // ilterate through all img in storage
-        const imageRef = storageRef(storage, `home_favourites/${id}.jpg`);
+        for (let id in menuDatas) {
+          const product = menuDatas[id];
+          // ilterate through all img in storage
+          const imageRef = storageRef(storage, `home_favourites/${id}.jpg`);
 
-        // Get img url
-        const promise = getDownloadURL(imageRef)
-          .then(url => {
-            product.image_path = url;
-            return product;
+          // Get img url
+          const promise = getDownloadURL(imageRef)
+            .then(url => {
+              product.image_path = url;
+              return product;
+            })
+            .catch(error => {
+              console.error(error);
+              return null;
+            });
+          // push to the declared array
+          promises.push(promise);
+        }
+
+        Promise.all(promises)
+          .then(products => {
+            // Remove null values and update the state
+            const filteredProducts = products.filter(p => p !== null);
+            sethomeListPost(filteredProducts)
+            setIsLoading(false);
           })
           .catch(error => {
             console.error(error);
-            return null;
           });
-        // push to the declared array
-        promises.push(promise);
+
+      });
+      // terminate the useEffect
+      return () => {
+        effectRan.current = true
       }
-
-      Promise.all(promises)
-        .then(products => {
-          // Remove null values and update the state
-          const filteredProducts = products.filter(p => p !== null);
-          sethomeListPost(filteredProducts)
-          setIsLoading(false);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-
-    });
+    }
   }, []);
 
 
@@ -145,7 +162,7 @@ function App() {
   // Clear cart
   const handleCartClearance = () => {
     setcartItem([]);
-  } 
+  }
   // <============
 
   // Total price Accumulator fuction
@@ -171,9 +188,9 @@ function App() {
 
   return (
     <main className="App">
-      <Header 
-      ToggleMenu={ToggleMenu}
-      menuOpen={menuOpen}
+      <Header
+        ToggleMenu={ToggleMenu}
+        menuOpen={menuOpen}
       />
       <Routes>
         <Route exact path='/' element={<Suspense
