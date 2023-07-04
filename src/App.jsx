@@ -79,7 +79,7 @@ function App() {
         // Get img url
         const promise = getDownloadURL(imageRef)
           .then(url => {
-            product.image = url;
+            product.image_path = url;
             return product;
           })
           .catch(error => {
