@@ -96,23 +96,12 @@ h3{
     transform: translate(-15px, 9px);
 }
 
-.menuBtn.open .hamburger-menu{
-    background-color: transparent;
-    transform: rotate(720deg);
-}
-
-.menuBtn.open .hamburger-menu::before{
-    transform: translateX(-15px) rotate(45deg);
-    background-color: red;
-}
-
 .menuBtn.open .hamburger-menu::after{
     transform: translateX(-15px) rotate(-45deg);
     background-color: red;
-}
+} 
 
-nav{
-    display: none;
+nav {
     padding-top: 0.5rem;
     position: absolute;
     top: 0;
@@ -123,7 +112,7 @@ nav{
     transform-origin: top center;
     
     background-color: white;
-    background-image: url(../pics/unsplash.jpg);
+    background-image: url(../img/unsplash.jpg);
     background-repeat: no-repeat;
     background-size: contain;
     background-size: 100vh;
@@ -140,10 +129,6 @@ nav{
         transform: scaleY(1);
     }
 } 
-
-nav.open{
-    display:block;
-}
 
 nav ul{
     display: flex;

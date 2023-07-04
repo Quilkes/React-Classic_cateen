@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../css/Header.css'
 
-const Header = () => {
+const Header = ({ ToggleMenu, menuOpen }) => {
     return (
         <header>
             <section className="header-section">
@@ -13,19 +13,21 @@ const Header = () => {
                         ><span className="chen">chen</span>
                     </h1>
                 </Link>
-                <button className="menuBtn">
-                    <div className="hamburger-menu"></div>
+                <button className="menuBtn" onClick={ToggleMenu}>
+                    <div className='hamburger-menu'></div>
                 </button>
             </section>
 
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/menu.html">Our Menu</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">About Us</a></li>
-                </ul>
-            </nav>
+            {menuOpen &&
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/menu.html">Our Menu</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            }
         </header>
     )
 }

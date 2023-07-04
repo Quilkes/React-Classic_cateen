@@ -114,10 +114,38 @@
     font-weight: 900;
 }
 
-.meal-for-display{
-    transition: all 0.3s ease-in-out;
-    max-width: 450px;
+.meal-section{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 5rem;
+    flex-flow: column nowrap;
+    position: relative;
+    min-width: 95%;
+    height: fit-content;
     padding-bottom: 1rem;
+}
+
+.meal-section .meal-for-display {
+    background-color: whitesmoke;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 7px #333;
+    padding-bottom: 1rem;
+    padding: 0.7rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+
+    max-width: 450px;
+    height: 16rem;
+    width: 80%;
+    transition: all 0.3s ease-in-out;
+}
+
+.meal-section > .meal-for-display:hover{
+    transform: scale(1.08);
 }
 
 

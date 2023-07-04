@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/Home.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 
 const MenuPostPage = ({ postMapped, handleAddProduct }) => {
   return (
       <Link to=''>
         <div className="meal-for-display">
           <img
-            src={postMapped.image}
+            src={postMapped.image_path}
             alt={postMapped.name}
             height="200"
             width="200"
@@ -21,8 +23,7 @@ const MenuPostPage = ({ postMapped, handleAddProduct }) => {
               <button
                 className="font"
                 onClick={() => handleAddProduct(postMapped)}>
-                  {/* adding of marked emoji fontawesome */}
-                <i className="fas fa-shopping-basket"></i>
+                <FontAwesomeIcon icon={faShoppingBasket} />
               </button>
             </div>
           </section>

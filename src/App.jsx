@@ -14,11 +14,18 @@ const Menu = lazy(() => import('./components/MenuList-components/Menu'));
 
 function App() {
   // States
+  const [menuOpen, setMenuOpen] = useState(false);
   const [menuListPosts, setmenuListPost] = useState([]);
   const [homeListPosts, sethomeListPost] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [cartItem, setcartItem] = useState([]);
   // <============
+
+  // Fuction for Toggling Hamburger menu
+  const ToggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  }
+
 
   // Fuction for fetching datas and images from firebase
   useEffect(() => {
@@ -36,7 +43,7 @@ function App() {
         // Get img url
         const promise = getDownloadURL(imageRef)
           .then(url => {
-            product.image = url;
+            product.image_path = url;
             return product;
           })
           .catch(error => {
@@ -79,7 +86,7 @@ function App() {
         // Get img url
         const promise = getDownloadURL(imageRef)
           .then(url => {
-            product.image = url;
+            product.image_path = url;
             return product;
           })
           .catch(error => {
@@ -164,7 +171,10 @@ function App() {
 
   return (
     <main className="App">
-      <Header />
+      <Header 
+      ToggleMenu={ToggleMenu}
+      menuOpen={menuOpen}
+      />
       <Routes>
         <Route exact path='/' element={<Suspense
           fallback={<Loading />}>
