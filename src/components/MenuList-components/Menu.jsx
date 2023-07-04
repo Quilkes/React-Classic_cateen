@@ -1,19 +1,23 @@
 import React from 'react'
 import MenuPostFeeds from './MenuPostFeeds'
 import SkeletonDisplayProduct from '../Skeleton-Loading/SkeletonDisplayProduct'
+import '../../css/Menu.css'
 
 const Menu = ({ menuListPosts, isLoading, handleAddProduct }) => {
   return (
-    <section>
-      {isLoading
-        ? Array.from({ length: 10 }).map(() => (
-          [...Array(1)].map((_, i) => <SkeletonDisplayProduct key={i} />)
-        ))
-        : <MenuPostFeeds
-          menuListPosts={menuListPosts}
-          handleAddProduct={handleAddProduct}
-        />
-      }
+    <section clasNmae='our-menu'>
+    <h2>Simpe and Tasty Reciept</h2>
+      {/* <section className="meal-section"> */}
+        {isLoading
+          ? Array.from({ length: 10 }).map(() => (
+            [...Array(1)].map((_, i) => <SkeletonDisplayProduct key={i} />)
+          ))
+          : <MenuPostFeeds
+            menuListPosts={menuListPosts}
+            handleAddProduct={handleAddProduct}
+          />
+        }
+      {/* </section> */}
     </section>
   )
 }

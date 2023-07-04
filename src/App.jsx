@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Loading from './components/Loading-state/Loading';
 import Missing from './components/Missing';
 import { database, storage, auth } from './firebase/firebaseSDK';
-import { ref, onValue } from 'firebase/database';
+import { ref, onValue, limitToFirst, query } from 'firebase/database';
 import { ref as storageRef, getDownloadURL } from 'firebase/storage';
 
 // Lazy loading componenets
@@ -65,7 +65,9 @@ function App() {
   useEffect(() => {
     // Reference to Realtime Database
     const menuRef = ref(database, 'home_favourites');
-    onValue(menuRef, snapshot => {
+    const menuQuery = query(menuRef, limitToFirst(9));
+
+    onValue(menuQuery, snapshot => {
       const menuDatas = snapshot.val();
       const promises = []; //declaring new array to store correct menu
 
@@ -139,7 +141,7 @@ function App() {
   } 
   // <============
 
-  // Total price Accumulator
+  // Total price Accumulator fuction
   const totalPrice = cartItem.reduce((acc, item) => {
     const itemQuantity = Number(item.quantity);
     const itemPrice = Number(item.price);

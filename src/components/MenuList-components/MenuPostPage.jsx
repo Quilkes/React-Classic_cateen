@@ -4,7 +4,6 @@ import '../../css/Home.css';
 
 const MenuPostPage = ({ postMapped, handleAddProduct }) => {
   return (
-    <section className="meal-section">
       <Link to=''>
         <div className="meal-for-display">
           <img
@@ -28,11 +27,7 @@ const MenuPostPage = ({ postMapped, handleAddProduct }) => {
             </div>
           </section>
         </div>
-
-
       </Link>
-
-    </section>
   )
 }
 
