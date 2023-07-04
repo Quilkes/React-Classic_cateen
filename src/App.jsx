@@ -74,7 +74,7 @@ function App() {
       for (let id in menuDatas) {
         const product = menuDatas[id];
         // ilterate through all img in storage
-        const imageRef = storageRef(storage, `home_favourites/${id}.jpg`);
+        const imageRef = storageRef(storage, `home_favourites/${id}.png`);
 
         // Get img url
         const promise = getDownloadURL(imageRef)
