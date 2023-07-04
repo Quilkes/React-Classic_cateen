@@ -6,7 +6,7 @@ const HomePostPage = ({ postMapped, handleAddProduct }) => {
       <section className="meal-section">
         <div className="meal-for-display">
           <img
-            src={postMapped.image}
+            src={postMapped.image_path}
             alt={postMapped.name}
             height="200"
             width="200"
