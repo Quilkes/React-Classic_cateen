@@ -43,7 +43,7 @@ function App() {
         for (let id in menuDatas) {
           const product = menuDatas[id];
           // ilterate through all img in storage
-          const imageRef = storageRef(storage, `menu/${id}.jpg`);
+          const imageRef = storageRef(storage, `menu/${id}.png`);
 
           // Get img url
           const promise = getDownloadURL(imageRef)
@@ -92,11 +92,24 @@ function App() {
         const menuDatas = snapshot.val();
         const promises = []; //declaring new array to store correct menu
 
-        for (let id in menuDatas) {
-          const product = menuDatas[id];
-          // ilterate through all img in storage
-          const imageRef = storageRef(storage, `home_favourites/${id}.jpg`);
+      for (let id in menuDatas) {
+        const product = menuDatas[id];
+        // ilterate through all img in storage
+        const imageRef = storageRef(storage, `home_favourites/${id}.jpg`);
 
+        // Get img url
+        const promise = getDownloadURL(imageRef)
+          .then(url => {
+            product.image_path = url;
+            return product;
+          })
+          .catch(error => {
+            console.error(error);
+            return null;
+          });
+        // push to the declared array
+        promises.push(promise);
+      }
           // Get img url
           const promise = getDownloadURL(imageRef)
             .then(url => {
