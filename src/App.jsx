@@ -1,6 +1,7 @@
 import { useState, useEffect, lazy, Suspense, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Loading from './components/Loading-state/Loading';
 import Missing from './components/Missing';
 import { database, storage, auth } from './firebase/firebaseSDK';
@@ -10,6 +11,7 @@ import { ref as storageRef, getDownloadURL } from 'firebase/storage';
 // Lazy loading componenets
 const Home = lazy(() => import('./components/HomeList-components/Home'));
 const Menu = lazy(() => import('./components/MenuList-components/Menu'));
+const Login = lazy(() => import('./components/Login'));
 // <============
 
 function App() {
@@ -30,7 +32,7 @@ function App() {
 
   // Fuction for fetching datas and images from firebase
   useEffect(() => {
-    // prevent useEffect from fetching datas twice
+    // prevent default useEffect behaviour of fetching datas twice
     if (effectRan.current === false) {
       // Reference to Realtime Database
       const menuRef = ref(database, 'menu');
@@ -80,7 +82,7 @@ function App() {
 
 
   useEffect(() => {
-    // prevent useEffect from fetching datas twice
+    // prevent default useEffect behaviour of fetching datas twice
     if (effectRan.current === false) {
       // Reference to Realtime Database
       const menuRef = ref(database, 'home_favourites');
@@ -209,8 +211,13 @@ function App() {
             handleAddProduct={handleAddProduct}
           />
         </Suspense>} />
+        <Route exact path='/login' element={<Suspense
+          fallback={<Loading />}>
+          <Login />
+        </Suspense>} />
         <Route exact path='*' element={<Missing />} />
       </Routes>
+      <Footer />
     </main>
   )
 }

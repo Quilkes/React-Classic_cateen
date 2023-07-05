@@ -5,8 +5,8 @@ import '../../css/Menu.css'
 
 const Menu = ({ menuListPosts, isLoading, handleAddProduct }) => {
   return (
-    <section clasNmae='our-menu'>
-    <h2>Simpe and Tasty Reciept</h2>
+    <section className={`our-menu ${isLoading ? 'menu-p-increase' : ''}`}>
+    <h2 className={`menu-heading ${isLoading ? 'increase-padding' : 'reduce-padding'}`} >Simpe and Tasty Reciept</h2>
       {/* <section className="meal-section"> */}
         {isLoading
           ? Array.from({ length: 10 }).map(() => (

@@ -1,23 +1,35 @@
-.our-menu{
+.our-menu {
     display: flex;
     flex-direction: column;
 }
 
-.our-menu h2 {
+.menu-p-increase {
+    padding-bottom: 2rem;
+}
+
+.our-menu .menu-heading {
     font-family: cursive, sans-serif;
-    padding: 1rem 0 2rem 0;
+    padding: 1rem 0 5rem 0;
     text-align: center;
 }
 
-.our-menu-section{
+.our-menu .increase-padding {
+    padding: 1rem 0 5rem 0;
+}
+
+.our-menu .reduce-padding {
+    padding: 1rem 0 3rem 0;
+}
+
+.our-menu-section {
     margin-top: 3rem;
 }
 
-.meal-section > .meal-for-display:hover{
+.meal-section > .meal-for-display:hover {
     transform: scale(1.08);
 }
 
-.meal-section{
+.meal-section {
     display: flex;
     justify-items: center;
     align-items: center;
