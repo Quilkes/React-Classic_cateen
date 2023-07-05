@@ -29,7 +29,6 @@ function App() {
     setMenuOpen(!menuOpen);
   }
 
-
   // Fuction for fetching datas and images from firebase
   useEffect(() => {
     // prevent default useEffect behaviour of fetching datas twice

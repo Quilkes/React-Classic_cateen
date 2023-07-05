@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import '../../css/Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import toast, { Toaster } from 'react-hot-toast';
+
+const notify = () => toast('here is your toast.');
 
 const MenuPostPage = ({ postMapped, handleAddProduct }) => {
   return (
@@ -19,7 +22,8 @@ const MenuPostPage = ({ postMapped, handleAddProduct }) => {
             <h3>{postMapped.name}</h3>
             <br />
             <div className='button-container'>
-              <button className="order-now">Order now</button>
+              <button className="order-now" onClick={notify}>Order now</button>
+              <Toaster />
               <button
                 className="font"
                 onClick={() => handleAddProduct(postMapped)}>
