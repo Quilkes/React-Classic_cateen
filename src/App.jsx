@@ -138,7 +138,7 @@ function App() {
     // prevent default useEffect behaviour of fetching datas twice
     if (effectRan.current === false) {
       // Reference to Realtime Database
-      const menuRef = ref(database, 'promotions');
+      const menuRef = ref(database, 'home_favourites');
       const menuQuery = query(menuRef, limitToFirst(9));
 
       onValue(menuQuery, snapshot => {
@@ -148,7 +148,7 @@ function App() {
         for (let id in menuDatas) {
           const product = menuDatas[id];
           // ilterate through all img in storage
-          const imageRef = storageRef(storage, `promotions/${id}.png`);
+          const imageRef = storageRef(storage, `home_favourites/${id}.png`);
 
           // Get img url
           const promise = getDownloadURL(imageRef)
