@@ -9,8 +9,9 @@ const notify = () => toast('here is your toast.');
 
 const HomePostPage = ({ postMapped, handleAddProduct }) => {
   return (
-    <Link to={`/HomeViewProduct/${postMapped.id}`}>
+    
       <section className="meal-section">
+        <Link to={`/HomeViewProduct/${postMapped.id}`}>
         <div className="meal-for-display">
           <img
             src={postMapped.image_path}
@@ -35,8 +36,9 @@ const HomePostPage = ({ postMapped, handleAddProduct }) => {
             </div>
           </section>
         </div>
+          </Link>
       </section>
-    </Link>
+    
   );
 }
 
