@@ -3,43 +3,40 @@ import '../../css/Home.css'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const notify = () => toast('here is your toast.');
 
 const HomePostPage = ({ postMapped, handleAddProduct }) => {
   return (
-    
-      <section className="meal-section">
-        <Link to={`/HomeViewProduct/${postMapped.id}`}>
-        <div className="meal-for-display">
-          <img
-            src={postMapped.image_path}
-            alt={postMapped.name}
-            height="200"
-            width="200"
-          />
+    <Link className="meal-section" to={`/HomeViewProduct/${postMapped.id}`}>
+      <div className="meal-for-display">
+        <img
+          src={postMapped.image_path}
+          alt={postMapped.name}
+          height="200"
+          width="200"
+        />
+        <br />
+        <section className="portions">
+          <h3>{postMapped.name}</h3>
+          <p className='price'>{postMapped.price}</p>
           <br />
-          <section className="portions">
-            <h3>{postMapped.name}</h3>
-            <br />
-            <div className="button-container">
-              <button className="order-now" onClick={notify}>
-                Order now
-              </button>
-              <button
-                className="font"
-                onClick={() => handleAddProduct(postMapped)}
-              >
-                <FontAwesomeIcon icon={faShoppingBasket} />
-              </button>
-            </div>
-          </section>
-        </div>
-          </Link>
-      </section>
-    
-  );
+          <div className="button-container">
+            <button className="order-now" onClick={notify}>
+              Order now
+            </button>
+            <button
+              className="font"
+              onClick={() => handleAddProduct(postMapped)}
+            >
+              <FontAwesomeIcon icon={faShoppingBasket} />
+            </button>
+          </div>
+        </section>
+      </div>
+    </Link>
+  )
 }
 
 export default HomePostPage

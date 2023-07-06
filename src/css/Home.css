@@ -95,11 +95,15 @@
     left: 0;
 }
 
-.food-section{
+.cuisine-filter,
+.food-section,
+.special-offers {
     height: fit-content;
 }
 
-.food-section legend {
+.cuisine-filter legend,
+.food-section legend,
+.special-offers legend {
     text-align: center;
     background-color:  white;
     font-weight: 900;
@@ -109,9 +113,53 @@
     color:rgb(149, 32, 178);
 }
 
-.food-section h2{
+.cuisine-filter .cuisine-placecard {
+    height: 8rem;
+    width: 90%;
+    border-radius: 5px;
+    background-color: rgb(28, 66, 28);
+    margin: 1rem auto;
+}
+
+.cuisine-filter .cuisine-section {
+    width: 90%;
+    height: 15rem;
+    margin: 1rem auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cuisine-filter .cuisine-section .one{
+    height: 45%;
+    min-width: 45%;
+    border-radius: 5px;
+    border: 1px solid red;
+    text-align: center;
+}
+
+.special-offers legend {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.food-section h2,
+.special-offers h2 {
     text-align: center;
     font-weight: 900;
+}
+
+.dishes-headings{
+    padding: 1rem 0 5rem 0;
+    font-family: var(--LATO);
+}
+
+.special-offers .offers {
+    color: red;
 }
 
 .meal-section{
@@ -141,20 +189,14 @@
     max-width: 450px;
     height: 16rem;
     width: 80%;
-    transition: all 0.3s ease-in-out;
 }
-
-.meal-section > .meal-for-display:hover{
-    transform: scale(1.01);
-}
-
 
 .meal-for-display img{
     display: block;
     height: auto;
     position: absolute;
     top: -60px;
-    left: 21%;
+    left: 11%;
 }
 
 /* BUTTON STYLING */
@@ -174,6 +216,15 @@
     align-items: center;
 }
 
+.meal-for-display .price {
+    color: rgb(149, 32, 178);
+    font-family: var(--ORBITRON);
+    font-size: 1.5rem;
+    position: absolute;
+    top: 100px;
+    right: 11%;
+}
+
 .meal-for-display .portions .order-now {
     border-bottom-left-radius: 4px;
     width: 70%;
@@ -187,16 +238,10 @@
     align-items: center;
 }
 
-.meal-for-display .portions .order-now:hover,
-.meal-for-display .portions .order-now:focus {
-    background-color: rgb(149, 32, 178);
-    color: white;
-}
-
 .meal-for-display .portions .font{
     width: 35%;
     height: 100%;
-    background-color: rgb(149, 32, 178);
+    background-color: rgb(28, 66, 28);
     color: white;
     display: flex;
     justify-content: center;

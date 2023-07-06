@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import HomePostFeed from './HomePostFeed'
+import PromotionFeed from '../Promotions/PromotionFeed'
 import SkeletonDisplayProduct from '../Skeleton-Loading/SkeletonDisplayProduct'
 import '../../css/Home.css'
 import pics1 from '../../img/pic-1.png'
@@ -7,7 +9,7 @@ import pics2 from '../../img/pics-2.png'
 import pics3 from '../../img/pics-3.png'
 import pics4 from '../../img/pics-4.png'
 
-const Home = ({ homeListPosts, handleAddProduct, isLoading }) => {
+const Home = ({ homeListPosts, handleAddProduct, isLoading, promotionListPosts }) => {
 
   return (
     <main className='Home'>
@@ -44,17 +46,66 @@ const Home = ({ homeListPosts, handleAddProduct, isLoading }) => {
         </section>
       </div>
 
+      <section className="cuisine-filter">
+        <legend>Cuisine Filters</legend>
+        <h3>Choose your Preferences</h3>
+        <div className="cuisine-placecard"></div>
+
+        <section className="cuisine-section">
+
+          <div className="one">
+            <img src='' alt='' />
+            <Link to=''><p>One</p></Link>
+          </div>
+
+
+          <div className="one">
+            <img src='' alt='' />
+            <Link to=''><p>Two</p></Link>
+          </div>
+
+
+          <div className="one">
+            <img src='' alt='' />
+            <Link to=''><p>Three</p></Link>
+          </div>
+
+
+          <div className="one">
+            <img src='' alt='' />
+            <Link to=''><p>Four</p></Link>
+          </div>
+
+        </section>
+
+      </section>
+
       <section className="food-section">
-        <legend>DISHES</legend>
+        <legend>Features Dishes</legend>
         <h3 className="dishes-headings">Best dishes for you</h3>
         {isLoading
           ? Array.from({ length: 4 }).map(() => (
             [...Array(1)].map((_, i) => <SkeletonDisplayProduct key={i} />)
           ))
-        : <HomePostFeed
-          homeListPosts={homeListPosts}
-          handleAddProduct={handleAddProduct}
-        />
+          : <HomePostFeed
+            homeListPosts={homeListPosts}
+            handleAddProduct={handleAddProduct}
+          />
+        }
+      </section>
+
+      <section className="special-offers">
+        <legend>Special&nbsp;<b className="offers">Offers</b></legend>
+        <h3 className="dishes-headings">Grab the promotion now!!!</h3>
+        {isLoading
+          ? Array.from({ length: 4 }).map(() => (
+            [...Array(1)].map((_, i) => <SkeletonDisplayProduct key={i} />)
+          ))
+          : <HomePostFeed
+            // change to {PromotionFeed}
+            promotionListPosts={promotionListPosts}
+            handleAddProduct={handleAddProduct}
+          />
         }
       </section>
 

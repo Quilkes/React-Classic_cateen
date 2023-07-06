@@ -9,7 +9,7 @@ const notify = () => toast('here is your toast.');
 
 const MenuPostPage = ({ postMapped, handleAddProduct }) => {
   return (
-    <Link to={`/viewproduct/${postMapped.id}`}>
+    <Link className="meal-section" to={`/viewproduct/${postMapped.id}`}>
       <div className="meal-for-display">
         <img
           src={postMapped.image_path}
@@ -20,6 +20,7 @@ const MenuPostPage = ({ postMapped, handleAddProduct }) => {
         <br />
         <section className="portions">
           <h3>{postMapped.name}</h3>
+          <p className='price'>{postMapped.name}</p>
           <br />
           <div className="button-container">
             <button className="order-now" onClick={notify}>
