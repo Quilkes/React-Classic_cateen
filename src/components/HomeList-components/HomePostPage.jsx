@@ -22,7 +22,7 @@ const HomePostPage = ({ postMapped, handleAddProduct }) => {
             <br />
             <div className='button-container'>
               <button className="order-now" onClick={notify} >Order now</button>
-              
+              <Toaster />
               <button
                 className="font"
                 onClick={() => handleAddProduct(postMapped)}>
