@@ -30,8 +30,8 @@
 
 .Loading .loading-container .loader1 {
     animation-delay: 100ms;
-    height: 0.8rem;
-    width: 0.8rem;
+    height: 0.5rem;
+    width: 0.5rem;
 }
 
 .Loading .loading-container .loader2 {
