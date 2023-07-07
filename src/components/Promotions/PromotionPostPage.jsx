@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 
 const notify = () => toast('here is your toast.');
 
-const PromotionPostPage = () => {
+const PromotionPostPage = ({ postMapped, handleAddProduct }) => {
     return (
         <Link className="meal-section" to={`/HomeViewProduct/${postMapped.id}`}>
             <div className="meal-for-display">
