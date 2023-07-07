@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import loginPNG from '../img/chef-hat_01.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faBowlFood } from '@fortawesome/free-solid-svg-icons'
 import '../css/Header.css'
@@ -9,10 +10,12 @@ const Header = ({ ToggleMenu, menuOpen }) => {
         <header>
             <section className="header-section">
                 <div className='font-img-login'>
-                    <Link to='/login'>
-                        <FontAwesomeIcon
-                            icon={faBowlFood}
+                    <Link to='/login' className='font-img-login-link'>
+                        <img
+                            src={loginPNG}
                             className='user-login'
+                            height='37'
+                            width='40'
                         />
                     </Link>
                 </div>

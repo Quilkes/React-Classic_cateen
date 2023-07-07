@@ -8,6 +8,10 @@ import pics1 from '../../img/pic-1.png'
 import pics2 from '../../img/pics-2.png'
 import pics3 from '../../img/pics-3.png'
 import pics4 from '../../img/pics-4.png'
+import desserts from '../../img/ice-cream.png'
+import burger from '../../img/burger.png'
+import pizza from '../../img/pizza.png'
+import mainCourse from '../../img/spaghetti.png'
 
 const Home = ({ homeListPosts, handleAddProduct, isLoading, promotionListPosts }) => {
 
@@ -53,28 +57,28 @@ const Home = ({ homeListPosts, handleAddProduct, isLoading, promotionListPosts }
 
         <section className="cuisine-section">
 
-          <div className="main-courses one">
-            <img src='' alt='' />
-            <Link to=''><p>Main Courses</p></Link>
-          </div>
+          <Link className="main-courses one">
+            <img src={mainCourse} alt='' />
+            <p>Main Courses</p>
+          </Link>
 
 
-          <div className="one">
-            <img src='' alt='' />
-            <Link to=''><p>Pizzas</p></Link>
-          </div>
+          <Link className="one">
+            <img src={pizza} alt='' />
+            <p>Pizzas</p>
+          </Link>
 
 
-          <div className="one">
-            <img src='' alt='' />
-            <Link to=''><p>Burgers</p></Link>
-          </div>
+          <Link className="one">
+            <img src={burger} alt='' />
+            <p>Burgers</p>
+          </Link>
 
 
-          <div className="one">
-            <img src='' alt='' />
-            <Link to=''><p>Desserts</p></Link>
-          </div>
+          <Link className="one">
+            <img src={desserts} alt='' />
+            <p>Desserts</p>
+          </Link>
 
         </section>
 
