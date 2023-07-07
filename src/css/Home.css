@@ -114,7 +114,7 @@
 }
 
 .cuisine-filter .cuisine-placecard {
-    height: 8rem;
+    height: 7rem;
     width: 90%;
     border-radius: 5px;
     background-color: rgb(28, 66, 28);
@@ -123,8 +123,9 @@
 
 .cuisine-filter .cuisine-section {
     width: 90%;
-    height: 18rem;
+    height: 20rem;
     margin: 1rem auto;
+    padding-bottom: 2rem;
 
     display: flex;
     justify-content: space-between;
