@@ -82,7 +82,7 @@ const Home = ({ homeListPosts, handleAddProduct, isLoading, promotionListPosts }
 
       <section className="food-section">
         <legend>Features Dishes</legend>
-        <h3 className="dishes-headings">Best dishes for you</h3>
+        <h3 className="dishes-headings">Exquisite Flavors Await You!</h3>
         {isLoading
           ? Array.from({ length: 4 }).map(() => (
             [...Array(1)].map((_, i) => <SkeletonDisplayProduct key={i} />)
@@ -96,7 +96,7 @@ const Home = ({ homeListPosts, handleAddProduct, isLoading, promotionListPosts }
 
       <section className="special-offers">
         <legend>Special&nbsp;<b className="offers">Offers</b></legend>
-        <h3 className="dishes-headings">Grab the promotion now!!!</h3>
+        <h3 className="dishes-headings">Indulge in Irresistible Canteen Delights!</h3>
         {isLoading
           ? Array.from({ length: 4 }).map(() => (
             [...Array(1)].map((_, i) => <SkeletonDisplayProduct key={i} />)
