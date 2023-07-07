@@ -32,8 +32,13 @@ const Header = ({ ToggleMenu, menuOpen }) => {
                     <ul onClick={ToggleMenu}>
                         <Link to='/'>Home</Link>
                         <Link to='/menu'>Our Menu</Link>
-                        <Link to='/contact'>Contact Us</Link>
+                        <Link to='/contact'>Order Online</Link>
+                        <Link to='/about'>Promotion</Link>
+                        <Link to='/about'>Delivery areas</Link>
+                        <Link to='/about'>Cart</Link>
                         <Link to='/about'>About Us</Link>
+                        <Link to='/about'>Contact Us</Link>
+                        <Link to='/about'>FAQ</Link>
                     </ul>
                 </nav>
             }

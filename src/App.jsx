@@ -7,13 +7,14 @@ import Missing from './components/Missing';
 import { database, storage, auth } from './firebase/firebaseSDK';
 import { ref, onValue, limitToFirst, query } from 'firebase/database';
 import { ref as storageRef, getDownloadURL } from 'firebase/storage';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 // Lazy loading componenets
 const Home = lazy(() => import('./components/HomeList-components/Home'));
 const Menu = lazy(() => import('./components/MenuList-components/Menu'));
-const Login = lazy(() => import('./components/Login'));
+const Login = lazy(() => import('./components/AuthLogin/Login'));
 const Cart = lazy(() => import('./components/Cart'));
+const Signup = lazy(() => import('./components/AuthLogin/Signup'))
 // <============
 
 function App() {
@@ -192,8 +193,14 @@ function App() {
         ? setcartItem(cartItem.map(item => item.id === product.id
           ? { ...ProductExist, quatity: ProductExist.quatity + 1 }
           : item
+
         ))
         : setcartItem([...cartItem, { ...product, quatity: 1 }])
+      toast(
+        ProductExist
+          ? ` ${product.name} added to cart`
+          : `${product.name} added to cart`
+      )
     }
   }
   // <============
@@ -203,6 +210,7 @@ function App() {
     const productExist = cartItem.find((item) => item.id === product.id);
     if (productExist.quantity === 1) {
       setcartItem(cartItem.filter((filterItem) => filterItem.id !== product.id));
+      toast('here is your toast.');
     }
 
     else {
@@ -276,6 +284,10 @@ function App() {
         <Route exact path='/login' element={<Suspense
           fallback={<Loading />}>
           <Login />
+        </Suspense>} />
+        <Route exact path='/sign-up' element={<Suspense
+          fallback={<Loading />}>
+          <Signup />
         </Suspense>} />
         <Route exact path='*' element={<Missing />} />
       </Routes>

@@ -53,27 +53,27 @@ const Home = ({ homeListPosts, handleAddProduct, isLoading, promotionListPosts }
 
         <section className="cuisine-section">
 
-          <div className="one">
+          <div className="main-courses one">
             <img src='' alt='' />
-            <Link to=''><p>One</p></Link>
+            <Link to=''><p>Main Courses</p></Link>
           </div>
 
 
           <div className="one">
             <img src='' alt='' />
-            <Link to=''><p>Two</p></Link>
+            <Link to=''><p>Pizzas</p></Link>
           </div>
 
 
           <div className="one">
             <img src='' alt='' />
-            <Link to=''><p>Three</p></Link>
+            <Link to=''><p>Burgers</p></Link>
           </div>
 
 
           <div className="one">
             <img src='' alt='' />
-            <Link to=''><p>Four</p></Link>
+            <Link to=''><p>Desserts</p></Link>
           </div>
 
         </section>

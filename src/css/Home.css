@@ -133,11 +133,18 @@
 }
 
 .cuisine-filter .cuisine-section .one{
-    height: 45%;
-    min-width: 45%;
+    height: 47%;
+    min-width: 47%;
     border-radius: 5px;
     border: 1px solid red;
     text-align: center;
+    font-family: var(--LATO);
+}
+
+.cuisine-filter .cuisine-section .one img{
+    display: block;
+    height: 75%;
+    width: 100%;
 }
 
 .special-offers legend {
@@ -154,7 +161,7 @@
 }
 
 .dishes-headings{
-    padding: 1rem 0 5rem 0;
+    padding: 0 0 5rem 0;
     font-family: var(--LATO);
 }
 
@@ -174,6 +181,7 @@
     padding-bottom: 5rem;
 }
 
+
 .meal-section .meal-for-display {
     background-color: whitesmoke;
     border: 1px solid #ccc;
@@ -190,6 +198,11 @@
     height: 16rem;
     width: 80%;
 }
+
+.special-offers .meal-for-display {
+    box-shadow: 0px 2px 7px #ac7070;
+    
+} 
 
 .meal-for-display img{
     display: block;

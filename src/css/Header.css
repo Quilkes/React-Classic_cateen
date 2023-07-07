@@ -18,7 +18,7 @@ header {
 .header-section .font-img-login{
     border: 2px solid rgb(28, 66, 28);
     height: 2.3rem;
-    width: 7%;
+    width: 9%;
     display: grid;
     place-content: center;
     border-radius: 5px;

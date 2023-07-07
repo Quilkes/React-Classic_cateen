@@ -6,6 +6,7 @@ footer {
     height: 15rem;
     margin: 0 auto;
     gap: 2rem;
+    font-size: var(--PHUDU);
     
     padding: 1.5rem 1rem ;
 }

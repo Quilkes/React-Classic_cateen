@@ -3,13 +3,10 @@ import '../../css/Home.css'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
-import toast from 'react-hot-toast';
-
-const notify = () => toast('here is your toast.');
 
 const HomePostPage = ({ postMapped, handleAddProduct }) => {
   return (
-    <Link className="meal-section" to={`/HomeViewProduct/${postMapped.id}`}>
+    <section className="meal-section">
       <div className="meal-for-display">
         <img
           src={postMapped.image_path}
@@ -23,9 +20,9 @@ const HomePostPage = ({ postMapped, handleAddProduct }) => {
           <p className='price'>{postMapped.price}</p>
           <br />
           <div className="button-container">
-            <button className="order-now" onClick={notify}>
+            <Link className="order-now" to={`/HomeViewProduct/${postMapped.id}`}>
               Order now
-            </button>
+            </Link>
             <button
               className="font"
               onClick={() => handleAddProduct(postMapped)}
@@ -35,7 +32,7 @@ const HomePostPage = ({ postMapped, handleAddProduct }) => {
           </div>
         </section>
       </div>
-    </Link>
+    </section>
   )
 }
 

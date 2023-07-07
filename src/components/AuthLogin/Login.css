@@ -1,0 +1,104 @@
+.login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective-origin: 1000px;
+    z-index: 100;
+    background-color: var(--COLOR);
+}
+
+.login .card{
+    position: relative;
+    height: 90vh;
+    width: 70vw;
+    transition: all 1s linear;
+    transform-style: preserve-3d;
+} 
+
+.card-rotate{
+    transform: rotateY(180deg);
+}
+
+.login h1{
+    font-family: var(--PHUDU);
+    text-align: center;
+}
+
+.login label{
+    display: none;
+}
+
+.front{
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+.back{
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+
+.login .login-form{
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid #ccc;
+    box-shadow: 0 7px 10px var(--BOX-SHADOW-COLOR);
+    background-color: var(--COLOR);
+    height: 68%;
+    width: 75vw;
+    gap: 1.5rem;
+    display: grid;
+    place-content: center;
+    position: absolute;
+} 
+
+.login .username-container,
+.login .password-container{
+    width: 95%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.login input{
+    width: 90%;
+    height: 49px;
+    padding: 0 1rem;
+    border: 1px solid #ccc;
+}
+
+.login button{
+    width: 90%;
+    height: 40px;
+    margin: 0 auto;
+    background-color: var(--ROYALBLUE);
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.login p{
+    padding-right: 0.7rem;
+    text-align: right;
+}
+
+.login p:first-child{
+    padding-bottom: 1rem;
+}
+
+.login .signup-terms{
+    color: var(--ROYALBLUE);
+}
+ 
+.signin-first{
+    visibility: hidden;
+}
