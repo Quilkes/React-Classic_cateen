@@ -17,7 +17,7 @@ const HomePostPage = ({ postMapped, handleAddProduct }) => {
         <br />
         <section className="portions">
           <h3>{postMapped.name}</h3>
-          <p className='price'>{postMapped.price}</p>
+          <p className='price'>${postMapped.price}</p>
           <br />
           <div className="button-container">
             <Link className="order-now" to={`/HomeViewProduct/${postMapped.id}`}>
