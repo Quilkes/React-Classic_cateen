@@ -101,8 +101,7 @@ const Home = ({ homeListPosts, handleAddProduct, isLoading, promotionListPosts }
           ? Array.from({ length: 4 }).map(() => (
             [...Array(1)].map((_, i) => <SkeletonDisplayProduct key={i} />)
           ))
-          : <HomePostFeed
-            // change to {PromotionFeed}
+          : <PromotionFeed
             promotionListPosts={promotionListPosts}
             handleAddProduct={handleAddProduct}
           />
