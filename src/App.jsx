@@ -28,6 +28,10 @@ function App() {
   const effectRan = useRef(false);
   // <============
 
+useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   // Fuction for Toggling Hamburger menu
   const ToggleMenu = () => {
     setMenuOpen(!menuOpen);
