@@ -202,7 +202,7 @@ useEffect(() => {
         : setcartItem([...cartItem, { ...product, quatity: 1 }])
       toast(
         ProductExist
-          ? ` ${product.name} added to cart`
+          ? `✅ ${product.name} added to cart`
           : `${product.name} added to cart`
       )
     }
