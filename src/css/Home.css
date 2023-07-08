@@ -24,7 +24,7 @@
     height: 800px;
     margin:  50px auto;
     border-radius: 50%;
-    animation: rotation 13s ease infinite;
+    animation: rotation 15s ease infinite;
 }
 
 @keyframes rotation {
