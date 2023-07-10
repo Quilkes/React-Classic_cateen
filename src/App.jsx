@@ -8,7 +8,8 @@ import { database, storage, auth } from './firebase/firebaseSDK';
 import { ref, onValue, limitToFirst, query } from 'firebase/database';
 import { ref as storageRef, getDownloadURL } from 'firebase/storage';
 import toast, { Toaster } from 'react-hot-toast';
-import Layout from './components/Layout';
+import HomeViewProduct from './components/HomeList-components/HomeViewProduct';
+// import Layout from './components/Layout';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
@@ -31,9 +32,16 @@ function App() {
   const effectRan = useRef(false);
   // <============
 
-useEffect(() => {
-    window.scrollTo(0, 0);
+  // Fuction for Resetting scroll
+  useEffect(() => {
+    if (effectRan.current === false) {
+      window.scrollTo(0, 0);
+      return () => {
+        effectRan.current = true
+      }
+    }
   }, [location.pathname]);
+  // <============
 
   // Fuction for Toggling Hamburger menu
   const ToggleMenu = () => {
@@ -295,9 +303,12 @@ useEffect(() => {
           fallback={<Loading />}>
           <Signup />
         </Suspense>} />
+        <Route exact path='/HomeViewProduct/:userId' element={<HomeViewProduct
+          handleAddProduct={handleAddProduct}
+          isLoading={isLoading}
+        />} />
         <Route exact path='*' element={<Missing />} />
       </Routes>
-
       <Toaster />
       <Footer />
     </main>
