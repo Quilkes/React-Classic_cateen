@@ -29,30 +29,25 @@ const HomeViewProduct = ({ handleAddProduct, isLoading }) => {
   };
 
   // Function for fetching image from storage
-const fetchImage = async (imageRef, productId) => {
-  try {
-    const response = await listAll(imageRef);
-    const promises = response.items.map(async (itemRef) => {
-      const url = await getDownloadURL(itemRef);
-      if (itemRef.name === `${productId}.png`) {
-        return { url, name: itemRef.name };
-      } else {
-        return null;
-      }
-    });
+  const fetchImage = async (imageRef, productId) => {
+    try {
+      const response = await listAll(imageRef);
+      const promises = response.items.map(async (itemRef) => {
+        const url = await getDownloadURL(itemRef);
+        if (itemRef.name === `${productId}.png`) {
+          return { url, name: itemRef.name };
+        } else {
+          return null;
+        }
+      });
 
-    const results = await Promise.all(promises);
-    const filteredResults = results.filter((result) => result !== null);
-    setProductImage(filteredResults);
-  } catch (err) {
-    console.log(`Error: ${err.message}`);
-  }
-};
-
-  useEffect(() => {
-  const imageRef = storageRef(storage, 'menu');
-  fetchImage(imageRef, showViewProduct.id);
-}, [showViewProduct.id]);
+      const results = await Promise.all(promises);
+      const filteredResults = results.filter((result) => result !== null);
+      setProductImage(filteredResults);
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,11 +58,14 @@ const fetchImage = async (imageRef, productId) => {
     };
 
     fetchData();
-
-    return () => {
-      effectRan.current = true;
-    };
   }, [userId]);
+
+  useEffect(() => {
+    const imageRef = storageRef(storage, 'menu');
+    if (showViewProduct.id) {
+      fetchImage(imageRef, showViewProduct.id);
+    }
+  }, [showViewProduct]);
 
   return (
     <section className='ViewProduct'>
