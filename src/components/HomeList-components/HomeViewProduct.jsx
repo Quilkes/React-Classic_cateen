@@ -6,6 +6,7 @@ import { ref as storageRef, listAll, getDownloadURL } from 'firebase/storage';
 import SkeletonDisplayProduct from '../Skeleton-Loading/SkeletonDisplayProduct';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
+import '../../css/HomeViewProductt.css';
 
 const HomeViewProduct = ({ handleAddProduct, isLoading }) => {
   const { userId } = useParams();
@@ -17,7 +18,9 @@ const HomeViewProduct = ({ handleAddProduct, isLoading }) => {
   const fetchProduct = async (endpoint, id, stateSetter) => {
     try {
       const dataRef = ref(database, `${endpoint}/${id}`);
-      const snapshot = await onValue(dataRef);
+      const snapshot = await new Promise((resolve, reject) => {
+        onValue(dataRef, resolve, reject);
+      })
       const data = snapshot.val();
       stateSetter(data);
     } catch (err) {
@@ -28,8 +31,8 @@ const HomeViewProduct = ({ handleAddProduct, isLoading }) => {
   // Function for fetching image from storage
   const fetchImage = async (imageRef) => {
     try {
-      const res = await listAll(imageRef);
-      const promises = res.items.map(async (itemRef) => {
+      const response = await listAll(imageRef);
+      const promises = response.items.map(async (itemRef) => {
         const url = await getDownloadURL(itemRef);
         if (itemRef.name === `${showViewProduct.id}.png`) {
           return { url, name: itemRef.name };
@@ -81,7 +84,7 @@ const HomeViewProduct = ({ handleAddProduct, isLoading }) => {
       <section className='product-information-price'>
         <div className='product-name'>{showViewProduct.name}</div>
         <div className='price'>${showViewProduct.price}</div>
-        <p className='information'>{showViewProduct.description}</p>
+        <p className='information'>{showViewProduct.information}</p>
 
         <div className='button-container'>
           <button
