@@ -8,7 +8,6 @@ import { database, storage, auth } from './firebase/firebaseSDK';
 import { ref, onValue, limitToFirst, query } from 'firebase/database';
 import { ref as storageRef, getDownloadURL } from 'firebase/storage';
 import toast, { Toaster } from 'react-hot-toast';
-import HomeViewProduct from './components/HomeList-components/HomeViewProduct';
 // import Layout from './components/Layout';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -19,6 +18,7 @@ const Menu = lazy(() => import('./components/MenuList-components/Menu'));
 const Login = lazy(() => import('./components/AuthLogin/Login'));
 const Cart = lazy(() => import('./components/Cart'));
 const Signup = lazy(() => import('./components/AuthLogin/Signup'))
+const HomeViewProduct = lazy(() => import('./components/HomeList-components/HomeViewProduct'))
 // <============
 
 function App() {
@@ -295,6 +295,13 @@ function App() {
             handleAddProduct={handleAddProduct}
           />
         </Suspense>} />
+        <Route exact path='/HomeViewProduct/:userId' element={<Suspense
+          fallback={<Loading />}>
+          <HomeViewProduct
+            handleAddProduct={handleAddProduct}
+            isLoading={isLoading}
+          />
+        </Suspense>} />
         <Route exact path='/login' element={<Suspense
           fallback={<Loading />}>
           <Login />
@@ -303,10 +310,6 @@ function App() {
           fallback={<Loading />}>
           <Signup />
         </Suspense>} />
-        <Route exact path='/HomeViewProduct/:userId' element={<HomeViewProduct
-          handleAddProduct={handleAddProduct}
-          isLoading={isLoading}
-        />} />
         <Route exact path='*' element={<Missing />} />
       </Routes>
       <Toaster />
