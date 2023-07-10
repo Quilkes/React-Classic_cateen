@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense, useRef } from 'react';
+import { useState, useLayoutEffect, useEffect, lazy, Suspense, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -30,16 +30,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [cartItem, setcartItem] = useState([]);
   const effectRan = useRef(false);
+  const location = useLocation();
   // <============
 
   // Fuction for Resetting scroll
-  useEffect(() => {
-    if (effectRan.current === false) {
+  useLayoutEffect(() => {
       window.scrollTo(0, 0);
-      return () => {
-        effectRan.current = true
-      }
-    }
   }, [location.pathname]);
   // <============
 
