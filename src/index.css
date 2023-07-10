@@ -30,3 +30,9 @@ a{
 button {
     cursor: pointer;
 }
+
+.error-message {
+    width: 70%;
+    height: 3rem;
+    background-color: rgb(247, 151, 151);
+}

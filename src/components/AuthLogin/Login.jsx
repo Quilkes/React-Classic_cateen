@@ -30,7 +30,7 @@ const Login = () => {
   }
 
   return (
-    <section>
+    <section className='login'>
       <form onSubmit={signIn} className='login-form'>
         <h2>Sign In</h2>
         {error && <p className="error-message">{error}</p>} {/* Display error message if it exists */}
@@ -44,7 +44,7 @@ const Login = () => {
             placeholder='Your Email'
             value={email}
             required
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </section>
 
@@ -57,21 +57,23 @@ const Login = () => {
             placeholder='Password'
             value={password}
             required
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </section>
 
-        <button type="submit">Sign In</button>
-      </form>
-      <section>
+        <button type="submit" disabled   >Sign In</button>
+
+        <section className='questions'>
         <p>
           Need an Account?
-          <Link className='signup-terms' to='/sign-up'>Sign Up</Link>
+          <Link className='signup-terms' to='/sign-up'>  Sign Up</Link>
         </p>
         <p className='signin-first'>
           By registering, I accept your <Link className='signup-terms' to="/terms_condition">Terms and conditions.</Link>
         </p>
       </section>
+      </form>
+
     </section>
   )
 }

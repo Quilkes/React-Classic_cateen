@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { auth } from '../../firebase/firebaseSDK';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import './Login.css';
+import './Signup.css'
 
 const Signup = () => {
   const userRef = useRef();
@@ -27,8 +27,8 @@ const Signup = () => {
   }
 
   return (
-    <section>
-      <form onSubmit={signUp} className='login-form'>
+    <section className='Signup'>
+      <form onSubmit={signUp} className='signup-form'>
         <h2>Sign Up</h2>
         {error && <p className="error-message">{error}</p>} {/* Display error message if it exists */}
         <section className="username-container">
@@ -58,18 +58,18 @@ const Signup = () => {
           />
         </section>
 
-        <button type="submit">Create account</button>
-      </form>
+        <button type="submit" disabled >Create account</button>
 
-      <section>
-        <p>
-          Already registered?
-          <Link className='signup-terms'>Login in</Link>
-        </p>
-        <p>
-          By registering, I accept your <Link className='signup-terms' to="/terms_condition">Terms and conditions.</Link>
-        </p>
-      </section>
+        <section className='questions'>
+          <p>
+            Already registered?
+            <Link className='signup-terms' to='/login'>  Login in</Link>
+          </p>
+          <p>
+            By registering, I accept your <Link className='signup-terms' to="/terms_condition">Terms and conditions.</Link>
+          </p>
+        </section>
+      </form>
     </section>
   )
 }

@@ -8,6 +8,9 @@ import { database, storage, auth } from './firebase/firebaseSDK';
 import { ref, onValue, limitToFirst, query } from 'firebase/database';
 import { ref as storageRef, getDownloadURL } from 'firebase/storage';
 import toast, { Toaster } from 'react-hot-toast';
+import Layout from './components/Layout';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 // Lazy loading componenets
 const Home = lazy(() => import('./components/HomeList-components/Home'));
@@ -202,7 +205,7 @@ useEffect(() => {
         : setcartItem([...cartItem, { ...product, quatity: 1 }])
       toast(
         ProductExist
-          ? `✅   ${product.name} added to cart`
+          ? ` ${product.name} added to cart`
           : `✅   ${product.name} added to cart`
       )
     }
@@ -250,8 +253,7 @@ useEffect(() => {
   // Reset submit fuction
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
-  // <============
+  };  // <============
 
   return (
     <main className="App">
