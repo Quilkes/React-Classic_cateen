@@ -1,5 +1,5 @@
-import { useState, useLayoutEffect, useEffect, lazy, Suspense, useRef } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { useState, useEffect, lazy, Suspense, useRef } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Loading from './components/Loading-state/Loading';
@@ -30,12 +30,16 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [cartItem, setcartItem] = useState([]);
   const effectRan = useRef(false);
-  const location = useLocation();
   // <============
 
   // Fuction for Resetting scroll
-  useLayoutEffect(() => {
+  useEffect(() => {
+    if (effectRan.current === false) {
       window.scrollTo(0, 0);
+      return () => {
+        effectRan.current = true
+      }
+    }
   }, [location.pathname]);
   // <============
 
@@ -275,7 +279,7 @@ function App() {
             isLoading={isLoading}
           />
         </Suspense>} />
-        <Route exact path='/' element={<Suspense
+        <Route exact path='/cart' element={<Suspense
           fallback={<Loading />}>
           <Cart
             homeListPosts={homeListPosts}
@@ -306,6 +310,7 @@ function App() {
           fallback={<Loading />}>
           <Signup />
         </Suspense>} />
+
         <Route exact path='*' element={<Missing />} />
       </Routes>
       <Toaster />
