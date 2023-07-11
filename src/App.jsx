@@ -314,7 +314,7 @@ function App() {
         <Route exact path='*' element={<Missing />} />
       </Routes>
       <Toaster />
-      <Footer />
+      {/* <Footer /> */}
     </main>
   )
 }

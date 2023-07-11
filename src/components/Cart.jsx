@@ -62,7 +62,7 @@ const Cart = () => {
               Promo discount
             </p>
             <p className="promo-discount-total-price">
-              $-0.00
+              -$0.00
             </p>
           </div>
 
