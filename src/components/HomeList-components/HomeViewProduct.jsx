@@ -55,7 +55,7 @@ const HomeViewProduct = () => {
   useEffect(() => {
     const fetchData = async () => {
       if (!effectRan.current) {
-        await fetchProduct('/menu', userId, setShowViewProduct);
+        await fetchProduct('/home_favourites', userId, setShowViewProduct);
         effectRan.current = true;
       }
     };
