@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import DataContext from '../../context/DataContext';
 import { useParams } from 'react-router-dom';
 import { database, storage } from '../../firebase/firebaseSDK';
@@ -13,7 +13,6 @@ const HomeViewProduct = () => {
   const { handleAddProduct, isLoading } = useContext(DataContext);
   
   const { userId } = useParams();
-  const effectRan = useRef(false);
   const [showViewProduct, setShowViewProduct] = useState({});
   const [productImage, setProductImage] = useState([]);
 
@@ -54,12 +53,8 @@ const HomeViewProduct = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!effectRan.current) {
-        await fetchProduct('/home_favourites', userId, setShowViewProduct);
-        effectRan.current = true;
-      }
+        await fetchProduct('/home_favourites', userId, setShowViewProduct)
     };
-
     fetchData();
   }, [userId]);
 
