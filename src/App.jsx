@@ -8,9 +8,7 @@ import { database, storage, auth } from './firebase/firebaseSDK';
 import { ref, onValue, limitToFirst, query } from 'firebase/database';
 import { ref as storageRef, getDownloadURL } from 'firebase/storage';
 import toast, { Toaster } from 'react-hot-toast';
-// import Layout from './components/Layout';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { Dataprovider } from './context/DataContext';
 
 // Lazy loading componenets
 const Home = lazy(() => import('./components/HomeList-components/Home'));
@@ -266,8 +264,8 @@ function App() {
   return (
     <main className="App">
       <Header
-        ToggleMenu={ToggleMenu}
         menuOpen={menuOpen}
+        ToggleMenu={ToggleMenu}
       />
       <Routes>
         <Route exact path='/' element={<Suspense
@@ -314,7 +312,7 @@ function App() {
         <Route exact path='*' element={<Missing />} />
       </Routes>
       <Toaster />
-      {/* <Footer /> */}
+      <Footer />
     </main>
   )
 }

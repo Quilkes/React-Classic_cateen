@@ -34,8 +34,8 @@ header {
 .header-section .user-login {
     display: block;
     position: absolute;
-    height: 2.4rem;
-    width: 2.7rem;
+    height: 2.1rem;
+    width: 2.3rem;
 }
 
 header h1 {
@@ -123,14 +123,13 @@ nav {
     padding-top: 0.5rem;
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 78%;
     height: 100vh;
     padding: 1rem 0.5rem;
     animation: drop 0.50s ease-in-out forwards;
-    transform-origin: top center;
+    transform-origin: left center;
     
     background-color: white;
-    background-image: url(../img/unsplash.jpg);
     background-repeat: no-repeat;
     background-size: contain;
     background-size: 100vh;
@@ -138,13 +137,13 @@ nav {
 
 @keyframes drop {
     0%{
-        transform: scaleY(0);
+        transform: scaleX(0);
     }
     80%{
-        transform: scaleY(1.2);
+        transform: scaleX(1);
     }
     100%{
-        transform: scaleY(1);
+        transform: scaleX(1);
     }
 } 
 

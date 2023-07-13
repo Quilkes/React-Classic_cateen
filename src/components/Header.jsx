@@ -1,11 +1,14 @@
-import React from 'react'
+import { useContext } from 'react'
+import DataContext from '../context/DataContext'
 import { Link } from 'react-router-dom'
 import loginPNG from '../img/chef-hat_01.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faBowlFood } from '@fortawesome/free-solid-svg-icons'
 import '../css/Header.css'
 
-const Header = ({ ToggleMenu, menuOpen }) => {
+const Header = ({menuOpen, ToggleMenu}) => {
+
+    // const { ToggleMenu, menuOpen } = useContext(DataContext);
     return (
         <header>
             <section className="header-section">
@@ -13,7 +16,7 @@ const Header = ({ ToggleMenu, menuOpen }) => {
                     <Link to='/login' className='font-img-login-link'>
                         <img
                             src={loginPNG}
-                            className='user-login'
+                             className='user-login'
                             height='37'
                             width='40'
                         />
