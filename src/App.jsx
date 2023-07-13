@@ -1,5 +1,5 @@
 import { useState, useEffect, lazy, Suspense, useRef } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Loading from './components/Loading-state/Loading';
@@ -8,7 +8,6 @@ import { database, storage, auth } from './firebase/firebaseSDK';
 import { ref, onValue, limitToFirst, query } from 'firebase/database';
 import { ref as storageRef, getDownloadURL } from 'firebase/storage';
 import toast, { Toaster } from 'react-hot-toast';
-import { Dataprovider } from './context/DataContext';
 
 // Lazy loading componenets
 const Home = lazy(() => import('./components/HomeList-components/Home'));
@@ -28,16 +27,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [cartItem, setcartItem] = useState([]);
   const effectRan = useRef(false);
+  const location = useLocation();
   // <============
 
   // Fuction for Resetting scroll
   useEffect(() => {
-    if (effectRan.current === false) {
       window.scrollTo(0, 0);
-      return () => {
-        effectRan.current = true
-      }
-    }
   }, [location.pathname]);
   // <============
 
