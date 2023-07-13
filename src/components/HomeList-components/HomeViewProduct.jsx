@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
+import DataContext from '../../context/DataContext';
 import { useParams } from 'react-router-dom';
 import { database, storage } from '../../firebase/firebaseSDK';
 import { ref, onValue } from 'firebase/database';
@@ -8,7 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 import '../../css/HomeViewProductt.css';
 
-const HomeViewProduct = ({ handleAddProduct, isLoading }) => {
+const HomeViewProduct = () => {
+  const { handleAddProduct, isLoading } = useContext(DataContext);
+  
   const { userId } = useParams();
   const effectRan = useRef(false);
   const [showViewProduct, setShowViewProduct] = useState({});

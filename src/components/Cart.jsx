@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import DataContext from '../context/DataContext'
 import '../css/Cart.css'
 
 const Cart = () => {
+  const { homeListPosts, handleAddProduct, isLoading } = useContext(DataContext);
+
   return (
     <section className='Cart'>
       <div className="cart-container">

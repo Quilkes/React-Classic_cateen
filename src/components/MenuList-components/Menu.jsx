@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext }from 'react'
+import DataContext from '../../context/DataContext'
 import MenuPostFeeds from './MenuPostFeeds'
 import SkeletonDisplayProduct from '../Skeleton-Loading/SkeletonDisplayProduct'
 import '../../css/Menu.css'
 
-const Menu = ({ menuListPosts, isLoading, handleAddProduct }) => {
+const Menu = () => {
+  const { menuListPosts, isLoading, handleAddProduct } = useContext(DataContext)
+
   return (
     <section className={`our-menu ${isLoading ? 'menu-p-increase' : ''}`}>
     <h2 className={`menu-heading ${isLoading ? 'increase-padding' : 'reduce-padding'}`} >Simpe and Tasty Reciept</h2>

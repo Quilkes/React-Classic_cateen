@@ -6,9 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faBowlFood } from '@fortawesome/free-solid-svg-icons'
 import '../css/Header.css'
 
-const Header = ({menuOpen, ToggleMenu}) => {
+const Header = () => {
 
-    // const { ToggleMenu, menuOpen } = useContext(DataContext);
+    const { ToggleMenu, menuOpen } = useContext(DataContext);
+    
     return (
         <header>
             <section className="header-section">

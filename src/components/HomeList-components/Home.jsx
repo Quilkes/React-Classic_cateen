@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import DataContext from '../../context/DataContext'
 import { Link } from 'react-router-dom'
 import HomePostFeed from './HomePostFeed'
 import PromotionFeed from '../Promotions/PromotionFeed'
@@ -13,8 +14,10 @@ import burger from '../../img/burger.png'
 import pizza from '../../img/pizza.png'
 import mainCourse from '../../img/spaghetti.png'
 
-const Home = ({ homeListPosts, handleAddProduct, isLoading, promotionListPosts }) => {
+const Home = () => {
 
+  const { homeListPosts, handleAddProduct, isLoading, promotionListPosts } = useContext(DataContext);
+  
   return (
     <main className='Home'>
       <div className="menu">
