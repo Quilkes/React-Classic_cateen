@@ -12,7 +12,7 @@ import '../../css/HomeViewProductt.css';
 const HomeViewProduct = () => {
   const { handleAddProduct, isLoading } = useContext(DataContext);
   
-  const { userId } = useParams();
+  const { productId } = useParams();
   const [showViewProduct, setShowViewProduct] = useState({});
   const [productImage, setProductImage] = useState([]);
 
@@ -53,10 +53,10 @@ const HomeViewProduct = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-        await fetchProduct('/home_favourites', userId, setShowViewProduct)
+        await fetchProduct('/home_favourites', productId, setShowViewProduct)
     };
     fetchData();
-  }, [userId]);
+  }, [productId]);
 
   useEffect(() => {
     const imageRef = storageRef(storage, 'menu');

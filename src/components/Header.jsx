@@ -2,14 +2,12 @@ import { useContext } from 'react'
 import DataContext from '../context/DataContext'
 import { Link } from 'react-router-dom'
 import loginPNG from '../img/chef-hat_01.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faBowlFood } from '@fortawesome/free-solid-svg-icons'
 import '../css/Header.css'
 
 const Header = () => {
 
     const { ToggleMenu, menuOpen } = useContext(DataContext);
-    
+
     return (
         <header>
             <section className="header-section">
@@ -17,7 +15,7 @@ const Header = () => {
                     <Link to='/login' className='font-img-login-link'>
                         <img
                             src={loginPNG}
-                             className='user-login'
+                            className='user-login'
                             height='37'
                             width='40'
                         />
@@ -35,19 +33,21 @@ const Header = () => {
             </section>
 
             {menuOpen &&
-                <nav>
-                    <ul onClick={ToggleMenu}>
-                        <Link to='/'>Home</Link>
-                        <Link to='/menu'>Our Menu</Link>
-                        <Link to='/contact'>Order Online</Link>
-                        <Link to='/about'>Promotion</Link>
-                        <Link to='/about'>Delivery areas</Link>
-                        <Link to='/about'>Cart</Link>
-                        <Link to='/about'>About Us</Link>
-                        <Link to='/about'>Contact Us</Link>
-                        <Link to='/about'>FAQ</Link>
-                    </ul>
-                </nav>
+                <section className='nav-background' onClick={ToggleMenu}>
+                    <nav>
+                        <ul onClick={ToggleMenu}>
+                            <Link to='/'>Home</Link>
+                            <Link to='/menu'>Our Menu</Link>
+                            <Link to='/contact'>Order Online</Link>
+                            <Link to='/about'>Promotion</Link>
+                            <Link to='/about'>Delivery areas</Link>
+                            <Link to='/about'>Cart</Link>
+                            <Link to='/about'>About Us</Link>
+                            <Link to='/about'>Contact Us</Link>
+                            <Link to='/about'>FAQ</Link>
+                        </ul>
+                    </nav>
+                </section>
             }
         </header>
     )

@@ -1,22 +1,14 @@
-import { lazy, Suspense } from 'react';
+import { Suspense, useContext } from 'react';
 import { Route, Routes} from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Loading from './components/Loading-state/Loading';
 import Missing from './components/Missing';
 import { Toaster } from 'react-hot-toast';
-
-// Lazy loading componenets
-const Home = lazy(() => import('./components/HomeList-components/Home'));
-const Menu = lazy(() => import('./components/MenuList-components/Menu'));
-const Login = lazy(() => import('./components/AuthLogin/Login'));
-const Cart = lazy(() => import('./components/Cart'));
-const Signup = lazy(() => import('./components/AuthLogin/Signup'))
-const HomeViewProduct = lazy(() => import('./components/HomeList-components/HomeViewProduct'))
-// <============
+import DataContext from './context/DataContext';
 
 function App() {
-  
+  const { Home, Menu, Login, Cart, Signup, HomeViewProduct } = useContext(DataContext);
 
   return (
     <main className="App">
@@ -34,7 +26,7 @@ function App() {
           fallback={<Loading />}>
           <Menu />
         </Suspense>} />
-        <Route exact path='/HomeViewProduct/:userId' element={<Suspense
+        <Route exact path='/HomeViewProduct/:productId' element={<Suspense
           fallback={<Loading />}>
           <HomeViewProduct />
         </Suspense>} />
@@ -45,8 +37,7 @@ function App() {
         <Route exact path='/sign-up' element={<Suspense
           fallback={<Loading />}>
           <Signup />
-        </Suspense>} />
-
+        </Suspense>} /> 
         <Route exact path='*' element={<Missing />} />
       </Routes>
       <Toaster />

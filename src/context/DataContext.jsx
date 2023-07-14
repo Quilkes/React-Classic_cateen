@@ -3,8 +3,7 @@ import { useLocation } from "react-router-dom";
 import { database, storage, auth } from '../firebase/firebaseSDK';
 import { ref, onValue, limitToFirst, query } from 'firebase/database';
 import { ref as storageRef, getDownloadURL } from 'firebase/storage';
-import toast, { Toaster } from 'react-hot-toast';
-import { Route, Routes } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 
 // Lazy loading componenets
@@ -259,7 +258,10 @@ export const DataProvider = ({ children }) => {
 
     return (
         <DataContext.Provider value={{
-            ToggleMenu, menuOpen, homeListPosts, promotionListPosts, handleAddProduct, isLoading, menuListPosts
+            Home, Menu, Login, Cart, Signup, HomeViewProduct,
+            ToggleMenu, menuOpen, homeListPosts, promotionListPosts,
+            handleAddProduct, isLoading, menuListPosts, handleMinuProduct,
+            totalPrice, handleSubmit, handleCartClearance
 
         }}>
             {children}
