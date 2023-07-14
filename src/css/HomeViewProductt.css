@@ -1,13 +1,102 @@
-.ViewProduct {
-    height: 100vh;
-    width: 100%;
+.ViewProduct{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 97%;
+    margin: 0 auto;
 }
 
-.ViewProduct .image-container {
-    border: 1px solid red;
-    height: 20rem;
+.ViewProduct .image-container{
+    height: 35vh;
     width: 100%;
+    border: 1px solid #ccc;
+}
+
+.ViewProduct .image-container img{
+    width: 100%;
+    height: 35vh;
+    display: block;
+    object-fit: cover;
+}
+
+.ViewProduct .product-information-price{
+    border: 1px solid #ccc;
+    display: flex;
+    flex-flow: column wrap;
+    width: 97%;
+    padding: 10px;
+    margin: 1.2rem auto;
+    border-radius: 5px;
+    margin-bottom: 95px;
+}
+
+.ViewProduct .product-name{
+    min-height: 50px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.ViewProduct .price{
+    min-height: 34px;
+    color: var(--RED);
+    font-size: 1.3rem;
+}
+
+.ViewProduct .information{
+    min-height: 150px;
+    font-size: 18px;
+    text-align: justify;
+    color: rgb(39, 37, 37);
+}
+
+.ViewProduct .information{
+    color: rgb(39, 37, 37);
+}
+
+.ViewProduct .button-container{
+    width: 100vw;
+    min-height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.4rem;
+    margin: 0 auto;
+    background-color: var(--COLOR);
+    z-index: 100;
+
+    position: fixed;
+    left: 0;
+    bottom: 57px;
+}
+
+.ViewProduct .button-container .add-to-cart{
+    min-width: 48%;
+    height: 40px;
+    background-color: rgb(180, 228, 188);
+    font-size: large;
+    cursor: pointer;
+    color: var(--BUTTON-COLOR);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.7rem;
+}
+
+
+.ViewProduct .button-container .order{
+    min-width: 48%;
+    height: 40px;
+    background-color: var(--BUTTON-COLOR);
+    font-size: large;
+    cursor: pointer;
+    outline: none;
+    color: var(--WHITESMOKE);
+    font-weight: 600;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
 }
