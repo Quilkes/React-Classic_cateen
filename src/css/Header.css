@@ -103,7 +103,7 @@ h3{
 .menuBtn .hamburger-menu::after{
     position: absolute;
     content: '';
-    width: 23px;
+    width: 23px; 
 }
 
 .menuBtn .hamburger-menu::before{
