@@ -13,9 +13,8 @@
 
 .ViewProduct .image-container img{
     width: 100%;
-    height: 35vh;
+    height: 30vh;
     display: block;
-
 }
 
 .ViewProduct .product-information-price{
