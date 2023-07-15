@@ -8,14 +8,13 @@
 .ViewProduct .image-container{
     height: 35vh;
     width: 100%;
-    border: 1px solid #ccc;
+    
 }
 
 .ViewProduct .image-container img{
-    width: 100%;
-    height: 35vh;
     display: block;
-    object-fit: cover;
+    height: 75%;
+    width: 75%;
 }
 
 .ViewProduct .product-information-price{
