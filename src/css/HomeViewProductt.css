@@ -1,21 +1,24 @@
 .ViewProduct{
     display: flex;
     flex-flow: column nowrap;
-    width: 97%;
+    width: 100vw;
     margin: 0 auto;
+    margin-top: 0.2rem;
 }
 
 .ViewProduct .image-container{
     height: 35vh;
     width: 100%;
     border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ViewProduct .image-container img{
-    width:95%;
-    height: 100%;
+    width: 67%;
+    height: 70%;
     display: block;
-    max-width: 100%;
 }
 
 .ViewProduct .product-information-price{
@@ -23,6 +26,7 @@
     display: flex;
     flex-flow: column wrap;
     width: 97%;
+    height: fit-content;
     padding: 10px;
     margin: 1.2rem auto;
     border-radius: 5px;
@@ -37,8 +41,9 @@
 
 .ViewProduct .price{
     min-height: 34px;
-    color: var(--RED);
-    font-size: 1.3rem;
+    font-family: var(--ORBITRON);
+    color: rgb(149, 32, 178);
+    font-size: 1.5rem;
 }
 
 .ViewProduct .information{
@@ -46,10 +51,11 @@
     font-size: 18px;
     text-align: justify;
     color: rgb(39, 37, 37);
+    font-family: var(--LATO);
 }
 
 .ViewProduct .button-container{
-    width: 100vw;
+    width: 100%;
     min-height: 50px;
     display: flex;
     justify-content: center;
@@ -82,11 +88,11 @@
 .ViewProduct .button-container .order{
     min-width: 48%;
     height: 40px;
-    background-color: var(--BUTTON-COLOR);
+    background-color: rgb(28, 66, 28);
+    color: white;
     font-size: large;
     cursor: pointer;
     outline: none;
-    color: var(--WHITESMOKE);
     font-weight: 600;
     border-radius: 5px;
     font-weight: bold;
