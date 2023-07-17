@@ -26,7 +26,7 @@ export const DataProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [cartItem, setcartItem] = useState([]);
     const effectRan = useRef(false);
-    const loaction = useLocation();
+    const location = useLocation();
     // <============
 
     // Fuction for Resetting scroll
@@ -198,16 +198,12 @@ export const DataProvider = ({ children }) => {
         {
             ProductExist
                 ? setcartItem(cartItem.map(item => item.id === product.id
-                    ? { ...ProductExist, quatity: ProductExist.quatity + 1 }
+                    ? { ...ProductExist, quantity: ProductExist.quantity + 1 }
                     : item
 
                 ))
-                : setcartItem([...cartItem, { ...product, quatity: 1 }])
-            toast(
-                ProductExist
-                    ? ` ${product.name} added to cart`
-                    : `✅   ${product.name} added to cart`
-            )
+                : setcartItem([...cartItem, { ...product, quantity: 1 }])
+            toast(`✅   ${product.name} added to cart`)
         }
     }
     // <============
@@ -255,13 +251,14 @@ export const DataProvider = ({ children }) => {
         e.preventDefault();
     };
 
+    const isCartEmpty = cartItem.length === 0;
 
     return (
         <DataContext.Provider value={{
             Home, Menu, Login, Cart, Signup, HomeViewProduct,
             ToggleMenu, menuOpen, homeListPosts, promotionListPosts,
             handleAddProduct, isLoading, menuListPosts, handleMinuProduct,
-            totalPrice, handleSubmit, handleCartClearance
+            totalPrice, handleSubmit, handleCartClearance, cartItem, isCartEmpty
 
         }}>
             {children}

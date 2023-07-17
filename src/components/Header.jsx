@@ -41,7 +41,7 @@ const Header = () => {
                             <Link to='/contact'>Order Online</Link>
                             <Link to='/about'>Promotion</Link>
                             <Link to='/about'>Delivery areas</Link>
-                            <Link to='/about'>Cart</Link>
+                            <Link to='/cart'>Cart</Link>
                             <Link to='/about'>About Us</Link>
                             <Link to='/about'>Contact Us</Link>
                             <Link to='/about'>FAQ</Link>

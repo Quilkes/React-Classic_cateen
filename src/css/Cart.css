@@ -11,6 +11,11 @@
     margin: 0 auto;
 }
 
+.Cart .heading-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .Cart .cart-container h2 {
     padding: 1rem 0;
     font-family: var(--ORBITRON);
@@ -35,7 +40,7 @@
 
 .Cart .cart-container .cart-items .button-control {
     border: 1px solid rgb(28, 66, 28);
-    width: 13%; 
+    width: 17%; 
     height: 80%;
     margin: auto 0;
     border-radius: 10px;
